@@ -69,15 +69,13 @@ app.get('/api/findBynName/:name',async(req,res)=>{
     }).where({$or:[{"name":confident}]}).skip((currentPage-1)*pageSize).limit(pageSize)
 })
 
-//student sublist page
+//all students sublist page
 app.all('/api/studentList',async(req,res)=>{
 
     var result = {
         data:[],
         total:''
     }
-
-    var confident = new RegExp(req.query.name)
 
     var query = Student.find({});
     query.count({},function(err,count){
