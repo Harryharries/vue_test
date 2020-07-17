@@ -10,13 +10,13 @@ app.get('/',async(req,res) =>{
 })
 
 //add student
-app.post('/api/studemts',async(req,res)=>{
+app.post('/api/student',async(req,res)=>{
     const student = await Student.create(req.body)
     res.send(student)
 })
 
 //delete student
-app.post('/api/studemts/:id',async(req,res)=>{
+app.post('/api/student/:id',async(req,res)=>{
     await Student.findByIdAndDelete(req.params.id)
     res.send({
         status:true
@@ -110,6 +110,6 @@ const Student = mongoose.model('Student',new mongoose.Schema({
 
 
 
-app.listen(8081,()=>{
+app.listen(3001,()=>{
     console.log('success')
 })
